@@ -120,14 +120,17 @@ In debug builds, the tweak macros use `__attribute__((section))` to statically s
 In release builds, the macros just expand to the default value. Nothing extra is included in the binary.
 
 ## Installation
-There are two options:
+Use the following line in your Podfile to install from this specific repository:
 
- 1. Tweaks is available as `Tweaks` in [Cocoapods](http://cocoapods.org). (If you have issues with custom Xcode configurations, [this comment](https://github.com/facebook/Tweaks/issues/4#issuecomment-40629741) might help.)
- 2. Manually add the files from `FBTweak/` into your Xcode project. Slightly simpler, but updates are also manual.
+```
+pod 'Tweaks', :git => 'https://github.com/akisute/Tweaks.git'
+```
 
-Tweaks requires iOS 6 or later.
+or, if your app requires iOS 5 support, use:
 
-There's also a demo project available. To use it, make sure to open `FBTweakExample.xcworkspace` (rather than the `.xcodeproj`) so the dependencies build correctly.
+```
+pod 'Tweaks', :git => 'https://github.com/akisute/Tweaks.git', :branch => 'ios5'
+```
 
 ## Contributing
 See the CONTRIBUTING file for how to help out.
