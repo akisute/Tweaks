@@ -17,4 +17,10 @@
  */
 @interface FBTweakShakeWindow : UIWindow <FBTweakViewControllerDelegate>
 
+/**
+ @abstract A FBTweakViewController object that is presented by this window.
+ @discussion Returns nil if tweak view controller is currently not presented.
+ */
+@property (nonatomic, readonly) FBTweakViewController *presentedTweakViewController;
+
 @end

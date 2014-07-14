@@ -17,6 +17,7 @@ static CFTimeInterval _FBTweakShakeWindowMinTimeInterval = 0.4;
 
 @implementation FBTweakShakeWindow {
   BOOL _shaking;
+  __weak FBTweakViewController *_presentedTweakViewController;
 }
 
 - (void)tweakViewControllerPressedDone:(FBTweakViewController *)tweakViewController
@@ -38,7 +39,13 @@ static CFTimeInterval _FBTweakShakeWindowMinTimeInterval = 0.4;
     FBTweakViewController *viewController = [[FBTweakViewController alloc] initWithStore:store];
     viewController.tweaksDelegate = self;
     [visibleViewController presentViewController:viewController animated:YES completion:NULL];
+    _presentedTweakViewController = viewController;
   }
+}
+
+- (FBTweakViewController *)presentedTweakViewController
+{
+  return _presentedTweakViewController;
 }
 
 - (BOOL)_shouldPresentTweaks
